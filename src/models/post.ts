@@ -9,7 +9,7 @@ interface IPost {
     deletedAt: Date;
 }
 
-interface IPostCreate extends Optional<IPost, "id"> {
+interface IPostCreate extends Optional<IPost, "id" | "createdAt" | "updatedAt" | "deletedAt"> {
 }
 
 export class Post extends Model<IPost, IPostCreate> implements IPost {
@@ -41,7 +41,9 @@ export class Post extends Model<IPost, IPostCreate> implements IPost {
             {
                 sequelize,
                 tableName: "Posts",
-                modelName: "Post"
+                modelName: "Post",
+                paranoid: true, // enable soft delete
+                deletedAt: "deletedAt", // name of the deletedAt column
             }
         );
         return Post;

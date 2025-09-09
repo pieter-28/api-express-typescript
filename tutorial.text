@@ -47,6 +47,9 @@ npx sequelize-cli db:seed:all
 #undo seeders
 npx sequelize-cli db:seed:undo
 
+#validation
+npm install --save-dev @types/joi
+
 #Source
 https://youtu.be/EfkjNqEGrfg?si=dBsppCm5iRf7jnxp
 menit 38:33
