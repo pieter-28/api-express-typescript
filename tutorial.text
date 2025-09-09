@@ -19,24 +19,33 @@ npx tsc --init
 }
 
 #run typescript di express
-"stripts": {
+"scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
 }
 
-#setup sequelize database
+#setup sequelize database (https://sequelize.org/docs/v6/other-topics/migrations/)
 npm install --save sequelize
 npm install --save mysql2 
 npm install --save-dev sequelize-cli
 npx sequelize-cli init
 
 #make model & migrations
-npx sequelize-cli model:generate --name Post --attribute title:string
+npx sequelize-cli model:generate --name Post --attributes title:string
 
 #executive migrations
 npx sequelize-cli db:migrate
 
+#roolback migrations
+npx sequelize-cli db:migrate:undo
+
+#Create seeders
+npx sequelize-cli seed:generate --name demo-user
+
 #executive seeders
 npx sequelize-cli db:seed:all
+
+#undo seeders
+npx sequelize-cli db:seed:undo
 
 #Source
 https://youtu.be/EfkjNqEGrfg?si=dBsppCm5iRf7jnxp
