@@ -1,0 +1,43 @@
+npm init -y
+npm install express
+
+#Setup Typescript
+npm install -D typescript ts-node-dev @types/node @types/express
+
+#init config typescript
+npx tsc --init
+
+#tsconfig.json
+{
+    "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true
+}
+
+#run typescript di express
+"stripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+}
+
+#setup sequelize database
+npm install --save sequelize
+npm install --save mysql2 
+npm install --save-dev sequelize-cli
+npx sequelize-cli init
+
+#make migrations
+npx sequelize-cli model:generate --name Post --attribute title:string
+
+#executive migrations
+npx sequelize-cli db:migrate
+
+#executive seeders
+npx sequelize-cli db:seed:all
+
+#Source
+https://youtu.be/EfkjNqEGrfg?si=dBsppCm5iRf7jnxp
+menit 30:14
