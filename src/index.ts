@@ -1,11 +1,12 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
+import {postRoute} from "./routes/post-route";
+
 const app = express();
 const port: number = 3000;
+app.use(express.json());
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!');
-});
+app.use(postRoute);
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running on port 127.0.0.1:${port}`);
 });

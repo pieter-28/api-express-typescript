@@ -8,8 +8,8 @@
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
+    "password": "admin",
+    "database": "express_ts",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
